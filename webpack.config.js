@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -30,6 +31,7 @@ module.exports = {
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([{from: 'src/assets', to: '', exclude: 'index.html'}]),
     new HtmlWebpackPlugin({
         template: 'src/assets/index.html'
     })
